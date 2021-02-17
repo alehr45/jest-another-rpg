@@ -1,22 +1,19 @@
+const Player = require('../lib/Player');
+
 const Potion = require('../lib/Potion');
 
+jest.mock('../lib/Potion.js');
+
+console.log(new Potion());
 
 test('creates a player object', () => {
     const player = new Player('Alex');
+    expect(player.inventory).toEqual(
+        expect.arrayContaining([expect.any(Object)])
+      );
   
     expect(player.name).toBe('Alex');
     expect(player.health).toEqual(expect.any(Number));
     expect(player.strength).toEqual(expect.any(Number));
     expect(player.agility).toEqual(expect.any(Number));
   });
-
-  function Player(name = '') {
-    this.inventory = [new Potion('health'), new Potion()];
-    this.name = name;
-  
-    this.health = Math.floor(Math.random() * 10 + 95);
-    this.strength = Math.floor(Math.random() * 5 + 7);
-    this.agility = Math.floor(Math.random() * 5 + 7);
-  }
-  
-  module.exports = Player;
