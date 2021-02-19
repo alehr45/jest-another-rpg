@@ -83,7 +83,7 @@ test('creates a player object', () => {
   });
 
   test('uses a potion from inventory', () => {
-    const player = new Player('Dave');
+    const player = new Player('Alex');
     player.inventory = [new Potion(), new Potion(), new Potion()];
     const oldCount = player.inventory.length;
   
